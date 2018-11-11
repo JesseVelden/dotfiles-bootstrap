@@ -41,24 +41,19 @@ If you used the script above it should already be added to ~/.ssh/config and
 added to Github. If it fails or you want do it manually you can follow the
 procedure described here below.
 
-## Starting SSH agent
-### Mac/ Debian:
-```bash
-eval $(ssh-agent -s)
-```
+### Starting SSH agent and setup keys
+**Mac/ Debian:** `eval $(ssh-agent -s)`
 
-### Windows
+**Windows:**
 ```PowerShell
 Set-Service ssh-agent -StartupType Manual
 Start-Service ssh-agent
 ```
 
-## Generating SSH key
-On Windows 10/ MacOS/ Debian it is all the same:
-```bash
-ssh-keygen -t rsa -b 4096 -C "mail@jessevandervelden.nl" -f ~/.ssh/github_rsa
-```
-## Add to `~/.ssh/config`:
+**Windows 10/ MacOS/ Debian**:
+`ssh-keygen -t rsa -b 4096 -C "mail@jessevandervelden.nl" -f ~/.ssh/github_rsa`
+
+**Add to `~/.ssh/config`:**
 ```
 Host github.com
   HostName github.com
@@ -66,19 +61,14 @@ Host github.com
   IdentityFile ~/.ssh/github_rsa
   IdentitiesOnly yes
 ```
-## Add to Github
+### Add to Github
 https://github.com/settings/keys
-### Mac
-```bash
-pbcopy < ~/.ssh/github_rsa.pub
-```
-### Debian
-```bash
-clip < ~/.ssh/github_rsa.pub
-```
-### Windows 10
-```PowerShell
-Get-Content ~\.ssh\github_rsa.pub | Set-Clipboard
-```
+
+**Mac:** `pbcopy < ~/.ssh/github_rsa.pub`
+
+**Debian:** `clip < ~/.ssh/github_rsa.pub`
+
+**Windows 10:** `Get-Content ~\.ssh\github_rsa.pub | Set-Clipboard`
+
 # Enjoy
 Enjoy and be productive!
