@@ -21,7 +21,7 @@ sudo apt update && sudo apt upgrade && sudo apt install git
 ```
 Then setup the SSH keys and add it to Github. Next:
 ```bash
-git clone https://github.com/megacookie/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./install.sh
+git clone git@github.com:MegaCookie/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./install.sh
 ```
 ## Windows 10
 We need to install git and SSH. Under Windows that is a bit difficult. Therefore
@@ -80,5 +80,5 @@ clip < ~/.ssh/github_rsa.pub
 ```PowerShell
 Get-Content ~\.ssh\github_rsa.pub | Set-Clipboard
 ```
-# Enjoy!
+# Enjoy
 Enjoy and be productive!
