@@ -11,7 +11,8 @@ Download Xcode in the AppStore and open in the terminal:
 ```bash
 xcode-select --install
 ```
-Then setup the SSH keys and add it to Github. Next:
+Then setup the SSH keys and add it to Github. Bash version of the setup script
+will be made the next time I need to install Debian/ Mac OS agian. Next:
 ```bash
 git clone git@github.com:MegaCookie/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./install.sh
 ```
@@ -19,7 +20,8 @@ git clone git@github.com:MegaCookie/dotfiles.git ~/dotfiles && cd ~/dotfiles && 
 ```bash
 sudo apt update && sudo apt upgrade && sudo apt install git
 ```
-Then setup the SSH keys and add it to Github. Next:
+Then setup the SSH keys and add it to Github. Bash version of the setup script
+will be made the next time I need to install Debian/ Mac OS agian. Next:
 ```bash
 git clone git@github.com:MegaCookie/dotfiles.git ~/dotfiles && cd ~/dotfiles && ./install.sh
 ```
