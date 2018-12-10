@@ -116,3 +116,6 @@ if ($LASTEXITCODE -eq 255) {
 }
 
 Write-Host "Hopefully everything worked!" -ForegroundColor "Yellow"
+
+Write-Host "You have to open a new Powershell window to continue!" ForegroundColor "Yellow"
+
