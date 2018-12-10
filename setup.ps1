@@ -7,6 +7,7 @@ Get-PackageProvider NuGet -Force | Out-Null
 
 if (!(Test-Path -path "$env:ProgramData\Chocolatey")) {
   Set-ExecutionPolicy Unrestricted; iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))
+  choco feature enable -n allowGlobalConfirmation
 }
 
 Write-Host "Installing PowerShell Modules..." -ForegroundColor "Yellow"
