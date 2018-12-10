@@ -63,9 +63,11 @@ if (!(Test-Path $HOME\.ssh\github_rsa)) {
 
       # Adding to Github using their API...
       $sshkey = [IO.File]::ReadAllText("$HOME\.ssh\github_rsa.pub")
+      
+      $keyname = Read-Host "Put in a name for the SSH key (e.g. Clevo Windows)"
 
       # Create data as PS hashtable literal.
-      $json = @{ title = "WinTestje"; key = "$sshkey" }
+      $json = @{ title = "$keyname"; key = "$sshkey" }
 
       if ($twoauth -match "[yY]") {
         # Convert to JSON with ConvertTo-Json and pipe to `curl` via *stdin* (-d '@-')
