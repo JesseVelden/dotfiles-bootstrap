@@ -19,12 +19,12 @@ if (!(Get-Module -ListAvailable -Name PSWindowsUpdate)) {
 }
 
 if (!(Test-Path HKLM:Software\GitForWindows)) {
-  choco install git.install --limit-output -params '"/GitAndUnixToolsOnPath /NoShellIntegration"'
+  choco install git.install --limit-output -params '"/GitAndUnixToolsOnPath /NoShellIntegration"' -y
 }
 
 #curl.exe is actually available since 1804
 if (!((Test-Path -path "${env:ProgramData}\chocolatey\lib\curl") -and (Test-Path "${env:WinDir}\System32\curl.exe"))) {
-  choco install curl --limit-output
+  choco install curl --limit-output -y
 }
 
 # Assuming openssh is installed since 1804
@@ -86,6 +86,10 @@ if (!(Test-Path $HOME\.ssh\github_rsa)) {
         ### Adding to ~\.ssh\config file. ###
         ###*******************************###
         Write-Host "IT WORKED! :). Now we'll add it to: ~\.ssh\config" -ForegroundColor "Green"
+        if (!(Test-Path $HOME\.ssh\config)) {
+          New-Item $HOME\.ssh\config -ItemType file
+        }
+        
         if (!(Get-Content $HOME\.ssh\config  | Select-String -pattern "\bHostName github.com\b" -quiet)) {
           Write-Host "Didn't find it yet in the config file. So addding it..." -ForegroundColor "Green"
           Add-Content $HOME\.ssh\config "`nHost github.com`n`tHostName github.com`n`tPreferredAuthentications publickey`n`tIdentityFile ~/.ssh/github_rsa`n`tIdentitiesOnly yes"
