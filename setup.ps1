@@ -23,7 +23,7 @@ if (!(Test-Path HKLM:Software\GitForWindows)) {
 }
 
 #curl.exe is actually available since 1804
-if (!((Test-Path -path "${env:ProgramData}\chocolatey\lib\curl") -and (Test-Path "${env:WinDir}\System32\curl.exe"))) {
+if (!((Test-Path -path "${env:ProgramData}\chocolatey\lib\curl") -or (Test-Path "${env:WinDir}\System32\curl.exe"))) { # Yes we use or. Think of the laws of logic
   choco install curl --limit-output -y
 }
 
