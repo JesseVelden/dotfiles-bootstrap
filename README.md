@@ -53,7 +53,7 @@ Start-Service ssh-agent
 ```
 
 **Windows 10/ MacOS/ Debian**:
-`ssh-keygen -t rsa -b 4096 -C "mail@jessevandervelden.nl" -f ~/.ssh/github_rsa`
+`ssh-keygen -t rsa -b 4096 -C "mail@jessevandervelden.nl" -f $HOME/.ssh/github_rsa`
 
 **Add to `~/.ssh/config`:**
 ```
